@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071b49">
+<title>Benjamin & Rosetta — Our Little Forever</title>
+<style>
+:root{--navy:#071b49;--blue:#123d8d;--blue2:#2d62c8;--gold:#e7c779;--cream:#fffaf0;--white:#fff;--muted:#c9d5ef;--glass:rgba(255,255,255,.09)}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--white);font-family:Georgia,'Times New Roman',serif;line-height:1.65}
+button,input{font:inherit}
+button,a{ -webkit-tap-highlight-color:transparent}
+a{color:inherit}
+.wrap{width:min(1100px,92%);margin:auto}
+.kicker{font:700 .72rem/1.5 system-ui,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(2.7rem,8vw,6.4rem);line-height:.98;letter-spacing:-.04em;margin:1rem 0}
+h2{font-size:clamp(2rem,5vw,3.5rem);line-height:1.1}
+h3{font-size:1.4rem}
+p{color:#e4eaf8}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:.55rem;padding:.9rem 1.25rem;border:1px solid var(--gold);border-radius:999px;background:var(--gold);color:#10234a;text-decoration:none;font:700 .85rem system-ui,sans-serif;letter-spacing:.04em;cursor:pointer;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#f2d998}
+.btn.secondary{background:transparent;color:var(--white);border-color:#8ea9df}
+.btn:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #fff;outline-offset:4px}
+.hero{min-height:100svh;display:grid;place-items:center;position:relative;overflow:hidden;text-align:center;background:radial-gradient(ellipse at 50% 20%,#244c9c 0,#102d6d 32%,#071b49 72%)}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(231,199,121,.25);border-radius:50%;width:min(80vw,700px);aspect-ratio:1;pointer-events:none}
+.hero:after{width:min(95vw,900px);border-color:rgba(255,255,255,.09)}
+.stars{position:absolute;inset:0;opacity:.6;background-image:radial-gradient(#fff 1px,transparent 1.5px),radial-gradient(#e7c779 1px,transparent 1.5px);background-size:90px 90px,137px 137px;background-position:10px 20px,60px 80px;mask-image:linear-gradient(to bottom,#000,transparent 95%)}
+.hero-inner{position:relative;z-index:1;padding:5rem 1rem;max-width:850px}
+.names{font-size:clamp(1.15rem,3vw,1.7rem);color:var(--cream);letter-spacing:.08em}
+.amp{color:var(--gold);font-style:italic;padding:0 .2em}
+.hero-copy{max-width:610px;margin:1.5rem auto 2rem;color:#dce5fb;font-size:1.08rem}
+.date-pill{display:inline-block;border:1px solid rgba(231,199,121,.55);border-radius:999px;padding:.5rem 1rem;color:var(--gold);font:600 .78rem system-ui,sans-serif;letter-spacing:.12em;margin:1rem 0 1.5rem}
+.ornament{color:var(--gold);font-size:1.8rem;letter-spacing:.5em;margin:1.5rem 0}
+nav{position:sticky;top:0;z-index:5;background:rgba(5,19,51,.92);backdrop-filter:blur(14px);border-bottom:1px solid rgba(231,199,121,.18)}
+.navinner{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:62px}
+.brand{font-size:1rem;color:var(--gold);white-space:nowrap}
+.navlinks{display:flex;gap:1.1rem;align-items:center;font:600 .78rem system-ui,sans-serif}
+.navlinks a{text-decoration:none;color:#dbe5fb}
+.navlinks a:hover{color:var(--gold)}
+section{padding:clamp(4rem,8vw,7rem) 0}
+.section-head{max-width:700px;margin:0 auto 2.5rem;text-align:center}
+.section-head p{font-size:1.05rem}
+.story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.card{padding:1.5rem;border:1px solid rgba(231,199,121,.24);border-radius:22px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:0 18px 50px rgba(0,0,0,.12)}
+.number{display:inline-grid;place-items:center;width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;color:var(--gold);font:700 .8rem system-ui,sans-serif;margin-bottom:1rem}
+.card p{margin-bottom:0}
+.light-section{background:var(--cream);color:var(--navy)}
+.light-section p{color:#39496c}
+.light-section .kicker{color:#8a6721}
+.letter{max-width:780px;margin:auto;padding:clamp(1.5rem,5vw,3.5rem);background:#fff;border:1px solid #eadbb6;box-shadow:0 20px 60px rgba(7,27,73,.12);color:var(--navy);position:relative}
+.letter:before{content:"";position:absolute;inset:12px;border:1px solid #eee2c5;pointer-events:none}
+.letter p{color:#344363;position:relative}
+.signature{font-size:1.8rem;font-style:italic;color:#183d83}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.photo-tile{min-height:230px;border:1px dashed rgba(231,199,121,.6);border-radius:20px;overflow:hidden;display:grid;place-items:center;text-align:center;padding:1rem;background:linear-gradient(145deg,#173d84,#091d4b);color:#dbe5fb;position:relative}
+.photo-tile img,.photo-tile video{position:absolute;width:100%;height:100%;inset:0;object-fit:cover}
+.photo-tile .placeholder{position:relative;z-index:1;text-shadow:0 2px 8px #001}
+.upload-panel{margin-top:1.25rem;padding:1.25rem;border-radius:18px;background:var(--glass);border:1px solid rgba(255,255,255,.13)}
+.upload-panel label{display:block;margin-bottom:.5rem;color:var(--gold);font-weight:bold}
+input[type=file]{width:100%;max-width:100%;padding:.75rem;border:1px solid #7895d2;border-radius:12px;background:#0a245a;color:white}
+.small{font: .82rem/1.6 system-ui,sans-serif;color:#cbd7f0}
+.unlock-box{max-width:650px;margin:auto;text-align:center;padding:2rem;border:1px solid rgba(231,199,121,.4);border-radius:24px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.02))}
+.unlock-box input{width:min(100%,300px);padding:.8rem 1rem;border:1px solid #7895d2;border-radius:999px;background:#071b49;color:white;margin:.5rem}
+.hidden{display:none!important}
+.secret{margin:1.5rem auto 0;padding:1.5rem;border-radius:16px;background:rgba(231,199,121,.12);color:#fff2c8}
+.future-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.future-grid .card{min-height:150px}
+.final{background:radial-gradient(ellipse at 50% 0,#214995,#071b49 68%);text-align:center}
+.final h2{max-width:800px;margin:1rem auto}
+footer{padding:2rem 1rem;text-align:center;color:#aebfe3;font: .8rem system-ui,sans-serif;border-top:1px solid rgba(231,199,121,.15)}
+#toast{position:fixed;bottom:1rem;left:50%;transform:translateX(-50%);z-index:10;background:#fff;color:#071b49;padding:.7rem 1rem;border-radius:999px;box-shadow:0 10px 30px #0005;font:600 .85rem system-ui,sans-serif;max-width:90%;text-align:center}
+@media(max-width:760px){.navinner{padding:.5rem 0;align-items:flex-start;flex-direction:column}.navlinks{width:100%;overflow-x:auto;padding:.25rem 0 .5rem;gap:1rem}.navlinks a{white-space:nowrap}.story-grid,.gallery-grid{grid-template-columns:1fr}.photo-tile{min-height:260px}.future-grid{grid-template-columns:1fr}.hero-inner{padding:4rem 1rem}.card{padding:1.3rem}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="kicker">A little universe made for two</div>
+    <div class="ornament" aria-hidden="true">✦ ✧ ✦</div>
+    <div class="names">BENJAMIN <span class="amp">&</span> ROSETTA</div>
+    <h1>Our Little<br><span style="color:var(--gold);font-style:italic">Forever</span></h1>
+    <div class="date-pill">27 OCTOBER 2023 — 27 OCTOBER 2026</div>
+    <p class="hero-copy">Three years of choosing each other, learning each other, and discovering that love can make an ordinary day feel like a beautiful beginning.</p>
+    <button class="btn" id="openSurprise">OPEN YOUR SURPRISE <span aria-hidden="true">✧</span></button>
+    <div style="margin-top:1.2rem"><a href="#story" style="font: .8rem system-ui,sans-serif;text-decoration:none;color:#c9d5ef">Scroll into our story ↓</a></div>
+  </div>
+</header>
+<nav aria-label="Main navigation"><div class="wrap navinner">
+  <a class="brand" href="#top" style="text-decoration:none">B <span class="amp">&</span> R ✦</a>
+  <div class="navlinks"><a href="#story">Our Story</a><a href="#letter">A Letter</a><a href="#memories">Memories</a><a href="#secret">Secret</a><a href="#future">Our Future</a></div>
+</div></nav>
+<main>
+<section id="story"><div class="wrap">
+  <div class="section-head"><div class="kicker">Chapter One</div><h2>Every forever has a beginning.</h2><p>Some moments become precious not because the world stopped, but because our hearts started paying attention.</p></div>
+  <div class="story-grid">
+    <article class="card"><div class="number">01</div><div class="kicker">17–22 October 2023</div><h3>The Kweikrom Camp Days</h3><p>Those days at Kweikrom camp became part of the beginning of our story. In the middle of everyday life, something meaningful was quietly taking shape.</p></article>
+    <article class="card"><div class="number">02</div><div class="kicker">27 October 2023</div><h3>The Day We Chose Us</h3><p>Our official beginning: one date, two hearts, and a story that was only just opening its first page. A day worth remembering, year after year.</p></article>
+    <article class="card"><div class="number">03</div><div class="kicker">27 October 2026</div><h3>Three Years of Us</h3><p>Today, we celebrate what we have shared and the beautiful possibilities ahead. The best part is not just how far we have come—it is that we still get to keep going together.</p></article>
+  </div>
+</div></section>
+<section id="letter" class="light-section"><div class="wrap">
+  <div class="section-head"><div class="kicker">A letter from my heart</div><h2>To my Rosetta,</h2><p>A few words for the woman who has a special place in my story.</p></div>
+  <article class="letter">
+    <p>My dearest Rosetta Nana Adwoa Fosimaa Amponsah,</p>
+    <p>Happy third anniversary, my love. When I look back to the beginning of our story, I feel grateful that life brought us to the same chapter. Since 27 October 2023, we have been writing something that belongs to us—made of memories, conversations, lessons, laughter, and the little moments that mean more than words can explain.</p>
+    <p>I cannot promise that every day will be perfect, but I can promise to keep learning how to love you well: to listen, to respect you, to celebrate your wins, to stand beside you through hard days, and to keep choosing us with a sincere heart.</p>
+    <p>May the years ahead bring us deeper understanding, good health, peace, joy, growth, and countless reasons to smile at the life we are building. May we never become too busy to appreciate each other, too proud to say sorry, or too familiar to say thank you.</p>
+    <p>Thank you for being part of my life and for sharing this journey with me. Three years are a beautiful milestone, but in my heart they are also a reminder: there is still so much love to give, so much to discover, and so many memories waiting for us.</p>
+    <p>Today, tomorrow, and in all the chapters still to come, I hope we keep making room for kindness, friendship, patience, romance, and the joy of simply being us.</p>
+    <p>With all my love,</p><p class="signature">Benjamin ✦</p>
+  </article>
+</div></section>
+<section id="memories"><div class="wrap">
+  <div class="section-head"><div class="kicker">Our little corner of forever</div><h2>Memories live here.</h2><p>Add the moments you never want to lose: photos, short videos, voice notes, songs, letters, or any little thing that tells our story.</p></div>
+  <div class="gallery-grid" id="gallery">
+    <div class="photo-tile"><div class="placeholder"><div style="font-size:2.3rem">♡</div><strong>Our first favourite memory</strong><div class="small">Add a photo or video below</div></div></div>
+    <div class="photo-tile"><div class="placeholder"><div style="font-size:2.3rem">✧</div><strong>A moment that made us laugh</strong><div class="small">Add a photo or video below</div></div></div>
+    <div class="photo-tile"><div class="placeholder"><div style="font-size:2.3rem">∞</div><strong>A memory to keep forever</strong><div class="small">Add a photo or video below</div></div></div>
+  </div>
+  <div class="upload-panel">
+    <label for="memoryFiles">Choose memory files</label>
+    <input id="memoryFiles" type="file" accept="image/*,video/*,audio/*,.pdf,.txt,.doc,.docx" multiple>
+    <p class="small" style="margin:.8rem 0 0">This preview lets you select files on your device. For privacy and speed, files are not uploaded to the website or shared with Rosetta automatically. To make memories visible to both of you, a shared storage service needs to be connected.</p>
+    <div id="fileList" class="small" style="margin-top:.8rem"></div>
+  </div>
+</div></section>
+<section id="secret" class="light-section"><div class="wrap">
+  <div class="section-head"><div class="kicker">Just between us</div><h2>A little secret awaits.</h2><p>Some words are sweeter when you know the little key.</p></div>
+  <div class="unlock-box">
+    <div style="font-size:2.4rem;color:#b18b35">🔐</div>
+    <p>Enter the special date that started our official story.</p>
+    <form id="unlockForm"><input id="secretKey" type="text" autocomplete="off" placeholder="DDMMYYYY" aria-label="Secret date" required><button class="btn" type="submit">UNLOCK MY MESSAGE</button></form>
+    <div id="secretMessage" class="secret hidden"><div class="kicker">Unlocked with love</div><h3>My favourite place is beside you.</h3><p>No matter how many pages life gives us, I hope we keep finding our way back to the simple joy of being on the same team. You are not just part of my story—you are one of the reasons it is beautiful. ❤️</p></div>
+    <p id="secretHint" class="small" style="margin:.8rem 0 0">Hint: our official anniversary date, written as numbers.</p>
+  </div>
+</div></section>
+<section id="future"><div class="wrap">
+  <div class="section-head"><div class="kicker">Chapter Four</div><h2>To all the tomorrows.</h2><p>May our future be full of the small, beautiful things that make a life feel rich.</p></div>
+  <div class="future-grid">
+    <article class="card"><div class="kicker">I hope we always…</div><h3>Keep choosing each other</h3><p>Even on the ordinary days, through honest conversations, patience, and the effort to understand.</p></article>
+    <article class="card"><div class="kicker">I hope we build…</div><h3>A peaceful home</h3><p>A place where respect, laughter, trust, and kindness have room to grow.</p></article>
+    <article class="card"><div class="kicker">I hope we discover…</div><h3>More of the world</h3><p>New places, new experiences, shared dreams, and stories we will tell with a smile.</p></article>
+    <article class="card"><div class="kicker">Most of all…</div><h3>Keep our friendship</h3><p>May romance stay alive, friendship stay strong, and gratitude keep finding its way into our days.</p></article>
+  </div>
+</div></section>
+<section class="final"><div class="wrap">
+  <div class="ornament">✦ ♡ ✦</div><div class="kicker">27 October 2026 · Our third anniversary</div>
+  <h2>Three years down.<br><span style="color:var(--gold);font-style:italic">A lifetime of memories to go.</span></h2>
+  <p style="max-width:620px;margin:1rem auto 2rem">Rosetta, thank you for being part of this beautiful chapter. Wherever the next pages take us, may we keep meeting them with love, courage, laughter, and two hearts willing to grow together.</p>
+  <button class="btn" id="momentBtn">HOLD THIS MOMENT ♡</button>
+  <p id="momentText" class="hidden" style="margin:1.5rem auto 0;color:var(--gold);font-size:1.2rem">Pause. Smile. Save this feeling. This is our story, and it is still being written.</p>
+</div></section>
+</main>
+<footer><p style="margin:0;color:#c4d2f0">Made with love for Benjamin & Rosetta</p><p style="margin:.35rem 0 0">Our Little Forever · 2023—2026</p></footer>
+<div id="toast" class="hidden" role="status" aria-live="polite"></div>
+<script>
+const toast=document.getElementById('toast');
+function showToast(msg){toast.textContent=msg;toast.classList.remove('hidden');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>toast.classList.add('hidden'),3200)}
+document.getElementById('openSurprise').addEventListener('click',()=>{document.getElementById('story').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});showToast('Your surprise begins with our story ✦')});
+document.getElementById('unlockForm').addEventListener('submit',e=>{e.preventDefault();const key=document.getElementById('secretKey').value.replace(/\D/g,'');if(key==='27102023'){document.getElementById('secretMessage').classList.remove('hidden');document.getElementById('secretHint').textContent='Unlocked. A little message, just for you. ♡';showToast('Secret unlocked with love!')}else{showToast('Not quite — try our anniversary date as DDMMYYYY.')}});
+document.getElementById('momentBtn').addEventListener('click',()=>{document.getElementById('momentText').classList.remove('hidden');showToast('A moment worth keeping ♡')});
+document.getElementById('memoryFiles').addEventListener('change',e=>{const files=[...e.target.files];const list=document.getElementById('fileList');list.replaceChildren();if(!files.length){list.textContent='';return}const note=document.createElement('p');note.textContent=`${files.length} file(s) selected on this device:`;list.appendChild(note);files.forEach(file=>{const row=document.createElement('div');row.textContent=`• ${file.name} — ${(file.size/1024/1024).toFixed(2)} MB`;list.appendChild(row)});const gallery=document.getElementById('gallery');files.filter(f=>f.type.startsWith('image/')||f.type.startsWith('video/')).slice(0,12).forEach(file=>{const tile=document.createElement('div');tile.className='photo-tile';const url=URL.createObjectURL(file);let media;if(file.type.startsWith('image/')){media=document.createElement('img');media.alt=file.name;media.src=url}else{media=document.createElement('video');media.src=url;media.controls=true;media.playsInline=true}tile.appendChild(media);gallery.appendChild(tile)});showToast('Selected files are previewed locally only.')});
+</script>
+</body></html>
